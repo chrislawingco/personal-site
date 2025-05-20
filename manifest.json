@@ -1,0 +1,11 @@
+{
+  "short_name": "chris lawingco",
+  "name": "Chris Lawingco - Personal Site",
+  "description": "Chris Lawingco's personal website, showcasing projects, blogs, and more.",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#003649",
+  "background_color": "#abc6dc"
+}
