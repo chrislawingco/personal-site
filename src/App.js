@@ -22,7 +22,7 @@ function App() {
   
 
   return (
-    <Router>
+    <Router basename="/personal-site">
       <div className='centered-container'>
         {/* Dark Mode Toggle Button */}
         <div className='darkmode-toggle-position'>
