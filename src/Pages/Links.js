@@ -1,7 +1,7 @@
 import HomeButton from '../HomeButton.js'
 import LinksButtons from '../LinksButtons.js';
 
-function Links() {
+export default function Links() {
     return (
         <>
             <p>links!</p>
@@ -10,5 +10,3 @@ function Links() {
         </>
     )
 }
-
-export default Links;

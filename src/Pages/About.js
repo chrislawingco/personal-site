@@ -1,6 +1,6 @@
 import HomeButton from '../HomeButton.js'
 
-function About() {
+export default function About() {
     return (
         <>
             <h1>about me!</h1>
@@ -12,5 +12,3 @@ function About() {
         </>
     )
 }
-
-export default About;

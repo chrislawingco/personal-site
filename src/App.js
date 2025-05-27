@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
+
+import { useSoundOnClick, useSoundOnEnter } from './SoundEffects.js'
 
 import './Site.css';
 
@@ -10,23 +12,39 @@ import Projects from './Pages/Projects';
 import Contact from './Pages/Contact';
 
 import DarkModeToggle from './DarkModeToggle.js'
+import MuteToggle from "./MuteToggle.js";
 
-function App() {
+// Sound effect attacher component
+function SoundEffectAttacher({ muted }) {
+  const location = useLocation();
+
+  // Pass location to listen for route changes
+  useSoundOnClick("btn-menu-sounds", "sfx/click2.wav", muted, location);
+  useSoundOnEnter("btn-menu-sounds", "sfx/enter.wav", muted, location);
+  
+  return null;
+}
+
+export default function App() {
 
   // Dark mode functionality
   const [darkMode, setDarkMode] = useState(false);
-
   useEffect(() => {
     document.body.className = (darkMode ? 'dark-mode' : 'light-mode')
   }, [darkMode]);
   
+  // Mute functionality
+  const [muted, setMuted] = useState(false);
 
   return (
-    <Router basename="/personal-site">
+    <Router >
+      <SoundEffectAttacher muted={muted} />
+
       <div className='centered-container'>
         {/* Dark Mode Toggle Button */}
-        <div className='darkmode-toggle-position'>
+        <div className='button-group-meta'>
           <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode}/>
+          <MuteToggle muted={muted} setMuted={setMuted} />
         </div>
 
         {/* Setting routes */}
@@ -41,5 +59,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

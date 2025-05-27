@@ -1,36 +1,41 @@
-h1, h2 {
-    margin: 0;
+* {
+  font-family: "Comfortaa", "Comic Sans MS";
 }
 
-body {
-  font-family: "Comic Sans MS";
+h1,
+h2 {
+  margin: 0;
 }
 
-button {
-  font-family: inherit;
+a {
+  text-decoration: none;
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 body.light-mode {
+  transition: background-color 0.5s ease, color 0.2s ease;
   background-color: #abc6dc;
   color: #003649;
 }
 
 body.dark-mode {
+  transition: background-color 0.5s ease, color 0.2s ease;
   background-color: #003649;
   color: #abc6dc;
 }
 
-.darkmode-toggle-position {
+.button-group-meta {
+  display: flex;
+  flex-direction: row;
   position: absolute;
   top: 16px;
   left: 16px;
   z-index: 1000;
-}
 
-.expanding-button {
-  &:hover {
-    transform: scale(1.2);
-  }
+  gap: 10px;
 }
 
 .button-group-row {
@@ -44,21 +49,108 @@ body.dark-mode {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 
   background: none;
   border: none;
   color: inherit;
 
+  width: 70px;
+  height: 70px;
+
+  &.btn-expanding {
+    transition: transform 0.1s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transform: scale(0.93);
+    }
+  }
+
+  &.btn-home {
+    margin-top: 50px;
+  }
+
+  &.btn-sm {
+    height: 50px;
+    width: 50px;
+  }
+
   img {
-    height: 70px;
-    width: 70px;
+    height: inherit;
+    width: inherit;
+  }
+
+  svg {
+    fill: currentColor;
+    height: inherit;
+    width: inherit;
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  15% {
+    transform: rotate(10deg)
+  }
+
+  85% {
+    transform: rotate(-10deg)
+  }
+
+  100% {
+    transform: rotate(0deg)
   }
 }
 
 .centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.reading-content {
+  justify-content: left;
+  width: 500px;
+
+  .reading-content-section-body {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
+
+    .reading-content-text {
+      flex: 1;
+      order: 1;
+    }
+
+    .reading-content-img-left {
+      order: 0;
+      margin-right: 5px;
+    }
+
+    .reading-content-img-right {
+      order: 2;
+      margin-left: 5px;
+    }
+  }
+
+  img {
+    height: 128px;
+    width: 128px;
+    display: inline;
+    flex-shrink: 0;
+  }
+}
+
+.technology-icon {
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
 }

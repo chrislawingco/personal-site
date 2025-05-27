@@ -1,6 +1,6 @@
 import MainButtons from '../MainButtons.js'
 
-function Home() {
+export default function Home() {
     return(
         <>
             <h1>chris lawingco</h1>
@@ -10,5 +10,3 @@ function Home() {
         </>
     )
 }
-
-export default Home;

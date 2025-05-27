@@ -1,6 +1,6 @@
 import HomeButton from '../HomeButton.js'
 
-function Contact() {
+export default function Contact() {
     return (
         <>
             <p>contact!</p>
@@ -8,5 +8,3 @@ function Contact() {
         </>
     )
 }
-
-export default Contact;
